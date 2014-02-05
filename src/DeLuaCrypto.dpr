@@ -12,9 +12,27 @@ library DeLuaCrypto;
 
 uses
   System.SysUtils,
-  System.Classes;
+  System.Classes,
+  Lua in '..\LuaDelphi\Lib\Lua.pas',
+  lua52 in '..\LuaDelphi\Lib\lua52.pas',
+  LuaLib in '..\LuaDelphi\Lib\LuaLib.pas',
+  LuaCrypto in 'LuaCrypto.pas';
 
 {$R *.res}
+
+var
+  LuaCrypto: TLuaCrypto;
+
+function libinit (L: Lua_State): Integer; cdecl;export;
+begin
+  LuaCrypto := TLuaCrypto.Create(false);  // we don't want to register the functions
+  LuaCrypto.LuaInstance := L;         // update LuaInstance
+  LuaCrypto.AutoRegisterFunctions(LuaCrypto);         // now register the functions
+  result := 1;
+end;
+
+exports
+  libinit;
 
 begin
 end.
