@@ -1,0 +1,169 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{D9BA5FF8-70D6-4C25-B62D-021E2E90DF9D}</ProjectGuid>
+        <ProjectVersion>14.4</ProjectVersion>
+        <FrameworkType>None</FrameworkType>
+        <MainSource>DeLuaCrypto.dpr</MainSource>
+        <Base>True</Base>
+        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Platform Condition="'$(Platform)'==''">Win32</Platform>
+        <TargetedPlatforms>1</TargetedPlatforms>
+        <AppType>Library</AppType>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Base' or '$(Base)'!=''">
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='OSX32' and '$(Base)'=='true') or '$(Base_OSX32)'!=''">
+        <Base_OSX32>true</Base_OSX32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Base)'=='true') or '$(Base_Win32)'!=''">
+        <Base_Win32>true</Base_Win32>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win64' and '$(Base)'=='true') or '$(Base_Win64)'!=''">
+        <Base_Win64>true</Base_Win64>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Debug' or '$(Cfg_1)'!=''">
+        <Cfg_1>true</Cfg_1>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='Win32' and '$(Cfg_1)'=='true') or '$(Cfg_1_Win32)'!=''">
+        <Cfg_1_Win32>true</Cfg_1_Win32>
+        <CfgParent>Cfg_1</CfgParent>
+        <Cfg_1>true</Cfg_1>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Config)'=='Release' or '$(Cfg_2)'!=''">
+        <Cfg_2>true</Cfg_2>
+        <CfgParent>Base</CfgParent>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="('$(Platform)'=='OSX32' and '$(Cfg_2)'=='true') or '$(Cfg_2_OSX32)'!=''">
+        <Cfg_2_OSX32>true</Cfg_2_OSX32>
+        <CfgParent>Cfg_2</CfgParent>
+        <Cfg_2>true</Cfg_2>
+        <Base>true</Base>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base)'!=''">
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
+        <GenDll>true</GenDll>
+        <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
+        <DCC_ExeOutput>.\$(Platform)\$(Config)</DCC_ExeOutput>
+        <DCC_E>false</DCC_E>
+        <DCC_N>false</DCC_N>
+        <DCC_S>false</DCC_S>
+        <DCC_F>false</DCC_F>
+        <DCC_K>false</DCC_K>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_OSX32)'!=''">
+        <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
+        <DCC_UsePackage>JvGlobus;JvMM;JvManagedThreads;FlexCel_Core;dac170;JvCrypt;DBXInterBaseDriver;DataSnapServer;DataSnapCommon;JvNet;JvDotNetCtrls;DbxCommonDriver;dbxcds;JvXPCtrls;CustomIPTransport;dsnap;IndyIPServer;IndyCore;FMX_FlexCel_Core;AnyDAC_PhysDb2_D17;JvDB;JvRuntimeDesign;bindcompfmx;dbrtl;bindcomp;inetdb;JvPluginSystem;JvCmp;JvTimeFramework;xmlrtl;ibxpress;bindengine;soaprtl;FlexCel_Pdf;AnyDAC_PhysADS_D17;AnyDAC_PhysIB_D17;DBXInformixDriver;DBXFirebirdDriver;inet;DBXSybaseASADriver;FlexCel_XlsAdapter;dbexpress;JvBDE;IndyIPClient;AnyDAC_PhysMySQL_D17;DBXSqliteDriver;fmx;JvDlgs;IndySystem;DataSnapClient;DataSnapProviderClient;AnyDAC_PhysMSAcc_D17;AnyDAC_PhysSQLITE_D17;AnyDAC_ComI_D17;DBXOracleDriver;AnyDAC_PhysMSSQL_D17;JvCore;AnyDAC_Comp_D17;AnyDAC_PhysODBC_D17;fmxase;AnyDAC_PhysPg_D17;IndyIPCommon;JvAppFrm;AnyDAC_PhysASA_D17;inetdbxpress;AnyDAC_PhysOracle_D17;JvDocking;JvWizards;odacfmx170;AnyDAC_GUIxForms_D17;JvBands;rtl;DbxClientDriver;AnyDAC_PhysTDBX_D17;FlexCel_Render;JvSystem;JvControls;IndyProtocols;DBXMySQLDriver;bindcompdbx;JvJans;JvPrintPreview;JvPageComps;JvStdCtrls;JvCustom;FMX_FlexCel_Components;AnyDAC_Phys_D17;dacfmx170;fmxobj;fmxdae;DataSnapIndy10ServerTransport;$(DCC_UsePackage)</DCC_UsePackage>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win32)'!=''">
+        <DCC_Namespace>Winapi;System.Win;Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
+        <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
+        <VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Locale>1033</VerInfo_Locale>
+        <DCC_UsePackage>cxPivotGridChartRS17;JvGlobus;JvMM;dxSkinBlueprintRS17;dxSkinHighContrastRS17;JvManagedThreads;dxSkinSevenRS17;tmsexdxe3;FlexCel_Core;dxSkinOffice2007BlackRS17;dac170;dxCoreRS17;cxPageControldxBarPopupMenuRS17;dxSkinXmas2008BlueRS17;JvCrypt;dxSkinSummer2008RS17;AH_COMP_DXE3;dxPScxSchedulerLnkRS17;dxSkinBlueRS17;dxSkinDarkRoomRS17;DBXInterBaseDriver;DataSnapServer;DataSnapCommon;tmsscriptervcl_xe3;dxPScxTLLnkRS17;CheckComboBoxDXE3;JvNet;JvDotNetCtrls;tmsscripter_xe3;dxRibbonRS17;DbxCommonDriver;VCL_FlexCel_Components;vclimg;cxDataRS17;dxPSdxDBTVLnkRS17;dbxcds;DSPack_DXE3;DatasnapConnectorsFreePascal;dxSkinsdxBarPainterRS17;JvXPCtrls;dxSkinMoneyTwinsRS17;vcldb;cxExportRS17;dxPSCoreRS17;dxBarExtItemsRS17;adgrmxe3;dxGDIPlusRS17;dxNavBarRS17;advchartdxe3;CustomIPTransport;cxLibraryRS17;cxGridRS17;dxSkinOffice2010BlackRS17;dsnap;IndyIPServer;IndyCore;dxSkinMcSkinRS17;CloudService;FMX_FlexCel_Core;dxPScxCommonRS17;FmxTeeUI;frxDB17;AnyDAC_PhysDb2_D17;dxSkinsdxDLPainterRS17;dxSkiniMaginaryRS17;JvDB;JvRuntimeDesign;FMX_FlexCel_Components_DESIGN;lmdrtrtlx;dxPScxVGridLnkRS17;JclDeveloperTools;dxSkinSevenClassicRS17;dxPScxExtCommonRS17;odacvcl170;dxPScxSSLnkRS17;vacommPkgDXE3;dxSkinLilianRS17;fs17;dxPSdxLCLnkRS17;dxSkinOffice2010BlueRS17;bindcompfmx;GR32_RSXE3;dxSkinOffice2010SilverRS17;vcldbx;cxSchedulerGridRS17;dbrtl;bindcomp;inetdb;JvPluginSystem;dxBarRS17;DBXOdbcDriver;dxBarDBNavRS17;JvCmp;madDisAsm_;dxSkinWhiteprintRS17;JvTimeFramework;xmlrtl;Hydra_Core_D17;ibxpress;dxSkinsdxRibbonPainterRS17;tmsdxe3;dxDockingRS17;vclactnband;bindengine;soaprtl;FMXTee;FlexCel_Pdf;dxADOServerModeRS17;bindcompvcl;dxBarExtDBItemsRS17;dxPSPrVwRibbonRS17;Jcl;vclie;dxSkinOffice2007PinkRS17;madExcept_;cxPageControlRS17;dxSkinscxPCPainterRS17;AnyDAC_PhysADS_D17;AnyDAC_PhysIB_D17;dxmdsRS17;dxSkinTheAsphaltWorldRS17;DBXInformixDriver;Intraweb;dxPsPrVwAdvRS17;dxSkinSilverRS17;dxdborRS17;dsnapcon;DBXFirebirdDriver;inet;fsDB17;vclx;dxSkinStardustRS17;cxEditorsRS17;CoolTrayIcon_D170;DBXSybaseASADriver;Hydra_VCL_D17;tmsxlsdxe3;FlexCel_XlsAdapter;dbexpress;JvBDE;IndyIPClient;AnyDAC_PhysMySQL_D17;cxTreeListdxBarPopupMenuRS17;dxSkinVS2010RS17;dxThemeRS17;DBXSqliteDriver;AbbreviaVCL;dxPScxGridLnkRS17;fmx;JvDlgs;IndySystem;TeeDB;dxSkinValentineRS17;vclib;inetdbbde;DataSnapClient;dxSkinDevExpressStyleRS17;DataSnapProviderClient;VCL_FlexCel_Components_DESIGN;DBXSybaseASEDriver;cxBarEditItemRS17;AnyDAC_PhysMSAcc_D17;dxServerModeRS17;cxPivotGridOLAPRS17;cxSchedulerRS17;MetropolisUILiveTile;AnyDAC_PhysSQLITE_D17;dxPSLnksRS17;dxSkinPumpkinRS17;dxPSdxDBOCLnkRS17;cxVerticalGridRS17;dxSkinSpringTimeRS17;vcldsnap;dacvcl170;dxSkinDevExpressDarkStyleRS17;DBXDb2Driver;AnyDAC_ComI_D17;DBXOracleDriver;AnyDAC_PhysMSSQL_D17;JvCore;AnyDAC_Comp_D17;vclribbon;dxSkinLiquidSkyRS17;cxSpreadSheetRS17;AnyDAC_PhysODBC_D17;fmxase;vcl;odac170;dxSkinOffice2007SilverRS17;AnyDAC_PhysPg_D17;IndyIPCommon;DBXMSSQLDriver;dxPSdxOCLnkRS17;dcldxSkinsCoreRS17;tmswizdxe3;JvAppFrm;AnyDAC_PhysASA_D17;inetdbxpress;webdsnap;lmdrtdocking;AnyDAC_PhysOracle_D17;dxSkinCoffeeRS17;JvDocking;aqueryxe3;adortl;dxSkinscxSchedulerPainterRS17;JvWizards;madBasic_;lmdrtcore;odacfmx170;frx17;dxtrmdRS17;dxPScxPCProdRS17;AnyDAC_GUIxForms_D17;JvBands;rtl;DbxClientDriver;AnyDAC_PhysTDBX_D17;dxTabbedMDIRS17;dxComnRS17;dxSkinSharpPlusRS17;dxSkinsCoreRS17;dxSkinLondonLiquidSkyRS17;dxdbtrRS17;Tee;JclContainers;FlexCel_Render;JvSystem;dxorgcRS17;svnui;dxSkinBlackRS17;JvControls;IndyProtocols;DBXMySQLDriver;TMSCloudPkgDXE3;dxLayoutControlRS17;bindcompdbx;TeeUI;JvJans;VCL_FlexCel_Core;JvPrintPreview;JvPageComps;JvStdCtrls;JvCustom;dxSkinOffice2007BlueRS17;GR32_DSGN_RSXE3;dxPScxPivotGridLnkRS17;dxSpellCheckerRS17;FMX_FlexCel_Components;vcltouch;dxSkinOffice2007GreenRS17;dxSkinSharpRS17;websnap;PowelComponents_DXE3;dxSkinFoggyRS17;llPDFLibDXE3;dxTileControlRS17;VclSmp;dxSkinDarkSideRS17;cxPivotGridRS17;DataSnapConnectors;AnyDAC_Phys_D17;dacfmx170;fmxobj;cxTreeListRS17;JclVcl;dxPSdxFCLnkRS17;dxSkinGlassOceansRS17;frxe17;svn;dxFlowChartRS17;fmxdae;dxSkinsdxNavBarPainterRS17;bdertl;VirtualTreesR;lmdrtl;DataSnapIndy10ServerTransport;dxDBXServerModeRS17;dxSkinCaramelRS17;$(DCC_UsePackage)</DCC_UsePackage>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Base_Win64)'!=''">
+        <DCC_UsePackage>JvGlobus;JvMM;dxSkinBlueprintRS17;dxSkinHighContrastRS17;JvManagedThreads;dxSkinSevenRS17;FlexCel_Core;dxSkinOffice2007BlackRS17;dac170;dxCoreRS17;cxPageControldxBarPopupMenuRS17;dxSkinXmas2008BlueRS17;JvCrypt;dxSkinSummer2008RS17;dxPScxSchedulerLnkRS17;dxSkinBlueRS17;dxSkinDarkRoomRS17;DBXInterBaseDriver;DataSnapServer;DataSnapCommon;dxPScxTLLnkRS17;JvNet;JvDotNetCtrls;dxRibbonRS17;DbxCommonDriver;VCL_FlexCel_Components;vclimg;cxDataRS17;dxPSdxDBTVLnkRS17;dbxcds;DatasnapConnectorsFreePascal;dxSkinsdxBarPainterRS17;JvXPCtrls;dxSkinMoneyTwinsRS17;vcldb;cxExportRS17;dxPSCoreRS17;dxBarExtItemsRS17;adgrmxe3;dxGDIPlusRS17;dxNavBarRS17;CustomIPTransport;cxLibraryRS17;cxGridRS17;dxSkinOffice2010BlackRS17;dsnap;IndyIPServer;IndyCore;dxSkinMcSkinRS17;FMX_FlexCel_Core;dxPScxCommonRS17;AnyDAC_PhysDb2_D17;dxSkinsdxDLPainterRS17;dxSkiniMaginaryRS17;JvDB;JvRuntimeDesign;lmdrtrtlx;dxPScxVGridLnkRS17;JclDeveloperTools;dxSkinSevenClassicRS17;dxPScxExtCommonRS17;odacvcl170;dxPScxSSLnkRS17;dxSkinLilianRS17;dxPSdxLCLnkRS17;dxSkinOffice2010BlueRS17;bindcompfmx;dxSkinOffice2010SilverRS17;dbrtl;bindcomp;inetdb;JvPluginSystem;dxBarRS17;DBXOdbcDriver;dxBarDBNavRS17;JvCmp;dxSkinWhiteprintRS17;JvTimeFramework;xmlrtl;Hydra_Core_D17;ibxpress;dxSkinsdxRibbonPainterRS17;dxDockingRS17;vclactnband;bindengine;soaprtl;FlexCel_Pdf;dxADOServerModeRS17;bindcompvcl;dxBarExtDBItemsRS17;dxPSPrVwRibbonRS17;Jcl;vclie;dxSkinOffice2007PinkRS17;cxPageControlRS17;dxSkinscxPCPainterRS17;AnyDAC_PhysADS_D17;AnyDAC_PhysIB_D17;dxmdsRS17;dxSkinTheAsphaltWorldRS17;DBXInformixDriver;dxPsPrVwAdvRS17;dxSkinSilverRS17;dxdborRS17;dsnapcon;DBXFirebirdDriver;inet;vclx;dxSkinStardustRS17;cxEditorsRS17;DBXSybaseASADriver;Hydra_VCL_D17;FlexCel_XlsAdapter;dbexpress;JvBDE;IndyIPClient;AnyDAC_PhysMySQL_D17;cxTreeListdxBarPopupMenuRS17;dxSkinVS2010RS17;dxThemeRS17;DBXSqliteDriver;dxPScxGridLnkRS17;fmx;JvDlgs;IndySystem;TeeDB;dxSkinValentineRS17;vclib;DataSnapClient;dxSkinDevExpressStyleRS17;DataSnapProviderClient;DBXSybaseASEDriver;cxBarEditItemRS17;AnyDAC_PhysMSAcc_D17;dxServerModeRS17;cxPivotGridOLAPRS17;cxSchedulerRS17;MetropolisUILiveTile;AnyDAC_PhysSQLITE_D17;dxPSLnksRS17;dxSkinPumpkinRS17;dxPSdxDBOCLnkRS17;cxVerticalGridRS17;dxSkinSpringTimeRS17;vcldsnap;dacvcl170;dxSkinDevExpressDarkStyleRS17;DBXDb2Driver;AnyDAC_ComI_D17;DBXOracleDriver;AnyDAC_PhysMSSQL_D17;JvCore;AnyDAC_Comp_D17;dxSkinLiquidSkyRS17;cxSpreadSheetRS17;AnyDAC_PhysODBC_D17;fmxase;vcl;dxSkinOffice2007SilverRS17;AnyDAC_PhysPg_D17;IndyIPCommon;DBXMSSQLDriver;dxPSdxOCLnkRS17;dcldxSkinsCoreRS17;JvAppFrm;AnyDAC_PhysASA_D17;inetdbxpress;webdsnap;lmdrtdocking;AnyDAC_PhysOracle_D17;dxSkinCoffeeRS17;JvDocking;adortl;dxSkinscxSchedulerPainterRS17;JvWizards;lmdrtcore;odacfmx170;dxPScxPCProdRS17;AnyDAC_GUIxForms_D17;JvBands;rtl;DbxClientDriver;AnyDAC_PhysTDBX_D17;dxTabbedMDIRS17;dxComnRS17;dxSkinSharpPlusRS17;dxSkinsCoreRS17;dxSkinLondonLiquidSkyRS17;dxdbtrRS17;Tee;JclContainers;FlexCel_Render;JvSystem;dxorgcRS17;dxSkinBlackRS17;JvControls;IndyProtocols;DBXMySQLDriver;dxLayoutControlRS17;bindcompdbx;TeeUI;JvJans;VCL_FlexCel_Core;JvPrintPreview;JvPageComps;JvStdCtrls;JvCustom;dxSkinOffice2007BlueRS17;dxPScxPivotGridLnkRS17;FMX_FlexCel_Components;vcltouch;dxSkinOffice2007GreenRS17;dxSkinSharpRS17;websnap;dxSkinFoggyRS17;VclSmp;dxSkinDarkSideRS17;cxPivotGridRS17;DataSnapConnectors;AnyDAC_Phys_D17;dacfmx170;fmxobj;cxTreeListRS17;JclVcl;dxPSdxFCLnkRS17;dxSkinGlassOceansRS17;dxFlowChartRS17;fmxdae;dxSkinsdxNavBarPainterRS17;VirtualTreesR;lmdrtl;DataSnapIndy10ServerTransport;dxDBXServerModeRS17;dxSkinCaramelRS17;$(DCC_UsePackage)</DCC_UsePackage>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1)'!=''">
+        <DCC_Define>DEBUG;$(DCC_Define)</DCC_Define>
+        <DCC_DebugDCUs>true</DCC_DebugDCUs>
+        <DCC_Optimize>false</DCC_Optimize>
+        <DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
+        <DCC_DebugInfoInExe>true</DCC_DebugInfoInExe>
+        <DCC_RemoteDebug>true</DCC_RemoteDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+        <DCC_RemoteDebug>false</DCC_RemoteDebug>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2)'!=''">
+        <DCC_LocalDebugSymbols>false</DCC_LocalDebugSymbols>
+        <DCC_Define>RELEASE;$(DCC_Define)</DCC_Define>
+        <DCC_SymbolReferenceInfo>0</DCC_SymbolReferenceInfo>
+        <DCC_DebugInformation>false</DCC_DebugInformation>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Cfg_2_OSX32)'!=''">
+        <Icns_MainIcns>$(BDS)\bin\delphi_PROJECTICNS.icns</Icns_MainIcns>
+    </PropertyGroup>
+    <ItemGroup>
+        <DelphiCompile Include="$(MainSource)">
+            <MainSource>MainSource</MainSource>
+        </DelphiCompile>
+        <BuildConfiguration Include="Release">
+            <Key>Cfg_2</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Base">
+            <Key>Base</Key>
+        </BuildConfiguration>
+        <BuildConfiguration Include="Debug">
+            <Key>Cfg_1</Key>
+            <CfgParent>Base</CfgParent>
+        </BuildConfiguration>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Delphi.Personality>
+                <VersionInfo>
+                    <VersionInfo Name="IncludeVerInfo">False</VersionInfo>
+                    <VersionInfo Name="AutoIncBuild">False</VersionInfo>
+                    <VersionInfo Name="MajorVer">1</VersionInfo>
+                    <VersionInfo Name="MinorVer">0</VersionInfo>
+                    <VersionInfo Name="Release">0</VersionInfo>
+                    <VersionInfo Name="Build">0</VersionInfo>
+                    <VersionInfo Name="Debug">False</VersionInfo>
+                    <VersionInfo Name="PreRelease">False</VersionInfo>
+                    <VersionInfo Name="Special">False</VersionInfo>
+                    <VersionInfo Name="Private">False</VersionInfo>
+                    <VersionInfo Name="DLL">False</VersionInfo>
+                    <VersionInfo Name="Locale">1033</VersionInfo>
+                    <VersionInfo Name="CodePage">1252</VersionInfo>
+                </VersionInfo>
+                <VersionInfoKeys>
+                    <VersionInfoKeys Name="CompanyName"/>
+                    <VersionInfoKeys Name="FileDescription"/>
+                    <VersionInfoKeys Name="FileVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="InternalName"/>
+                    <VersionInfoKeys Name="LegalCopyright"/>
+                    <VersionInfoKeys Name="LegalTrademarks"/>
+                    <VersionInfoKeys Name="OriginalFilename"/>
+                    <VersionInfoKeys Name="ProductName"/>
+                    <VersionInfoKeys Name="ProductVersion">1.0.0.0</VersionInfoKeys>
+                    <VersionInfoKeys Name="Comments"/>
+                    <VersionInfoKeys Name="CFBundleName"/>
+                    <VersionInfoKeys Name="CFBundleDisplayName"/>
+                    <VersionInfoKeys Name="CFBundleIdentifier"/>
+                    <VersionInfoKeys Name="CFBundleVersion"/>
+                    <VersionInfoKeys Name="CFBundlePackageType"/>
+                    <VersionInfoKeys Name="CFBundleSignature"/>
+                    <VersionInfoKeys Name="CFBundleAllowMixedLocalizations"/>
+                    <VersionInfoKeys Name="CFBundleExecutable"/>
+                </VersionInfoKeys>
+                <Source>
+                    <Source Name="MainSource">DeLuaCrypto.dpr</Source>
+                </Source>
+            </Delphi.Personality>
+            <Deployment/>
+            <Platforms>
+                <Platform value="OSX32">False</Platform>
+                <Platform value="Win32">True</Platform>
+                <Platform value="Win64">False</Platform>
+            </Platforms>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+    <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
+    <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
+</Project>
