@@ -1,0 +1,4 @@
+[submodule "LuaDelphi"]
+	path = LuaDelphi
+	url = https://github.com/rburgstaler/LuaDelphi.git
+	branch = master
