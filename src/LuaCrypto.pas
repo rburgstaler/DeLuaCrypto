@@ -16,7 +16,7 @@ type
 implementation
 
 uses
-  IdHashMessageDigest, idHash, System.IOUtils;
+  IdHashMessageDigest, idHash, System.IOUtils, IdGlobal;
 
 { TLuaCrypto }
 
@@ -27,7 +27,7 @@ var
 begin
   idmd5 := TIdHashMessageDigest5.Create;
   try
-    Result:=idmd5.HashStringAsHex(Str, TEncoding.ANSI)
+    Result:=idmd5.HashStringAsHex(Str, IndyTextEncoding(IdTextEncodingType.encASCII));
   finally
     idmd5.Free;
   end;
